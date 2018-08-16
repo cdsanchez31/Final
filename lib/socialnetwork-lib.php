@@ -24,7 +24,7 @@ function Headerb (){
                 <!-- Notifications: style can be found in dropdown.less -->
 
                 <li>
-                    <a href="">
+                    <a href="profile.php">
                         <span class="fa fa-user"></span> PERFIL
                     </a>
                 </li>
@@ -40,6 +40,13 @@ function Headerb (){
                         <span class="fa fa-envelope"></span> B.ENTRADA
                     </a>
                 </li>
+
+                <li>
+                    <a href="../pages/logout.php">
+                        <span class="fa fa-code"></span> SALIR
+                    </a>
+                </li>
+
 
                 <!-- Control Sidebar Toggle Button -->
                 <li>
@@ -64,13 +71,60 @@ function Headerb (){
     <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="" class="img-circle" alt="User Image">
+                <img src="../avatars/<?php echo $_SESSION['avatar']?>" class="rounded" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p><span class="hidden-xs"><?php echo ucwords($_SESSION['usuario']); ?></span></p>
+                <a href="profile.php"><span class="hidden-xs"><?php echo ucwords($_SESSION['usuario']); ?></span></a>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
+            <p><?php echo $_SESSION['nombre'] ?>  <?php echo $_SESSION['apellido']?></p>
         </div>
+
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">OPCIONES</li>
+            <li>
+                <a href="index.php">
+                    <i class="fa fa-home"></i> <span>Inicio</span>
+                </a>
+            </li>
+
+            <li>
+            <a href="chats.php">
+                <i class="fa fa-commenting"></i> <span>Chats</span>
+            </a>
+            </li>
+
+            <li>
+                <a href="Calensar.php">
+                    <i class="fa fa-calendar"></i> <span>Calendario</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="pages/widgets.html">
+                    <i class="fa fa-envelope"></i> <span>Mailbox</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="pages/widgets.html">
+                    <i class="fa fa-hand-stop-o"></i> <span>Ayuda</span>
+                </a>
+
+
+            <li>
+                <a href="pages/widgets.html">
+                    <i class="fa fa-legal"></i> <span>Terminos Juridicos</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="pages/widgets.html">
+                    <i class="fa fa-chain"></i> <span>Enlaces de Interes</span>
+                </a>
+            </li>
+        </ul>
+
     </section>
     <!-- /.sidebar -->
 </aside>

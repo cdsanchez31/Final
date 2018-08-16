@@ -63,43 +63,45 @@
                     <!-- /.col -->
                     </div>
                 </form>
-                <?php
-                if(isset($_POST['login'])){
-                  $usuario = $_POST['usuario'];
-                  //$usuario = strip_tags($_POST['usuario']);
-                  //$usuario = trim($_POST['usuario']);
+                 <?php
+                    if(isset($_POST['login'])){
+                        $usuario = $_POST['usuario'];
+                        //$usuario = strip_tags($_POST['usuario']);
+                        //$usuario = trim($_POST['usuario']);
 
-                    $contrasena = md5($_POST['contrasena']);
-                    //$contrasena = strip_tags(md5($_POST['contrasena']));
-                    //$contrasena = trim(md5($_POST['contrasena']));
+                        $contrasena = md5($_POST['contrasena']);
+                        //$contrasena = strip_tags(md5($_POST['contrasena']));
+                        //$contrasena = trim(md5($_POST['contrasena']));
 
-                    $consulta = "SELECT * FROM usuario WHERE Usuario = '$usuario' AND Contrasena = '$contrasena'";
+                        $consulta = "SELECT * FROM usuario WHERE Usuario = '$usuario' AND Contrasena = '$contrasena'";
 
-                    $Ausuario = IDU($consulta);
-                    $contar = Consultar($consulta);
+                        $Ausuario = IDU($consulta);
+                        $contar = Consultar($consulta);
 
-                    if($contar == 1){
-                      while($row=mysqli_fetch_Array($Ausuario)){
-                          if($usuario = $row['Usuario'] && $contrasena = $row['Contrasena']){
-                              $_SESSION['usuario'] = $row['Usuario'];
-                              $_SESSION['id'] = $row['IdUsuario'];
-                              header('Location: index.php');
-                          }
-                      }
-                    }else {
-                      ?>
-                      <br>
-                      <div class="alert alert-danger alert-dismissible" role="alert">
-                          Los datos ingresados no son correctos
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                          </button>
-                      </div>
-                      <?php
-                  }
-                }
+                        if($contar == 1){
+                            while($row=mysqli_fetch_Array($Ausuario)) {
+                                if ($usuario = $row['Usuario'] && $contrasena = $row['Contrasena']) {
+                                    $_SESSION['usuario'] = $row['Usuario'];
+                                    $_SESSION['avatar'] = $row['Avatar'];
+                                    $_SESSION['nombre'] = $row['Nombres'];
+                                    $_SESSION['apellido'] = $row['Apellidos'];
 
-                ?>
+                                    header('Location: index.php');
+                                }
+                            }
+                        }else {
+                        ?>
+                <br>
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    Los datos ingresados no son correctos
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <?php
+                        }
+                    }
+                    ?>
                 <hr>
                 <a href="#">Olvidé mi contraseña</a><br>
                 <a href="register.php" class="text-center">Registrarme en REDSOCIAL</a>
@@ -117,14 +119,14 @@
         <!-- /.login-box -->
 
         <!-- jQuery 2.2.3 -->
-        <script src="plugins/jQuery/jquery-3.3.1.min.js"></script>
+        <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
         <!-- Bootstrap 3.3.6 -->
-        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <!-- iCheck -->
-        <script src="plugins/iCheck/icheck.min.js"></script>
+        <script src="../plugins/iCheck/icheck.min.js"></script>
         <!-- Material Design -->
-        <script src="../../dist/js/material.min.js"></script>
-        <script src="../../dist/js/ripples.min.js"></script>
+        <script src="../dist/js/material.min.js"></script>
+        <script src="../dist/js/ripples.min.js"></script>
         <script>
             $.material.init();
         </script>

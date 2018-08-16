@@ -136,6 +136,7 @@ include ('../lib/config.php');
                         </div>
 
                         <?php
+                        echo "comprobo usuario";
                     } else {
                         if($comprobaremail >= 1) {
                             ?>
@@ -145,6 +146,7 @@ include ('../lib/config.php');
                                 El email ya está en uso por favor escoja otro o verifique si tiene una cuenta
                             </div>
                             <?php
+                            echo "comprobo email";
                         } else {
 
                             if($contrasena != $repcontrasena) {
@@ -159,7 +161,7 @@ include ('../lib/config.php');
                                 <?php
                             } else {
 
-                                $insertar = "INSERT INTO usuario (Nombres, Apellidos, Documento, Email, Telefono, Celular, Usuario, Contrasena, Avatar, FechaRegistro, IdTipoUsuario, IdEspecialidad) VALUES ('$nombres','$apellidos','$documento','$email','$telefono','$celular','$usuario','$contrasena','defect.jpg',now(),1,1)";
+                                $insertar = "INSERT INTO usuario (Nombres, Apellidos, Documento, Email, Telefono, Celular, Usuario, Contrasena, Avatar, TarjetaProfesional, UniversidadPregrado, UniversidadPostgrado, ExperienciaLaboral, FechaRegistro, IdTipoUsuario, IdEspecialidad, IdDepartamento, IdCiudad, Estado) VALUES ('$nombres','$apellidos','$documento','$email','$telefono','$celular','$usuario','$contrasena','defect.jpg','','','','',now(),1,1,0,0,'')";
                                 $cinsertar = IDU($insertar);
                                 if($cinsertar == true) {
                                     ?>
