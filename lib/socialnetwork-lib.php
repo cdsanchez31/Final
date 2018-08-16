@@ -95,13 +95,13 @@ function Headerb (){
             </li>
 
             <li>
-                <a href="Calensar.php">
+                <a href="Calendar.php">
                     <i class="fa fa-calendar"></i> <span>Calendario</span>
                 </a>
             </li>
 
             <li>
-                <a href="pages/widgets.html">
+                <a href="Mailbox.php">
                     <i class="fa fa-envelope"></i> <span>Mailbox</span>
                 </a>
             </li>
