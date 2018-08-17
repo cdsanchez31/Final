@@ -6,7 +6,7 @@ function Headerb (){
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="index.php" class="logo">
+    <a href="../pages/index.php" class="logo">
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg">LEGISL<b>APP</b></span>
     </a>
