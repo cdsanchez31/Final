@@ -89,7 +89,7 @@ function Headerb (){
             </li>
 
             <li>
-            <a href="chats.php">
+            <a href="chat.php">
                 <i class="fa fa-commenting"></i> <span>Chats</span>
             </a>
             </li>
