@@ -80,6 +80,7 @@
                         if($contar == 1){
                             while($row=mysqli_fetch_Array($Ausuario)) {
                                 if ($usuario = $row['Usuario'] && $contrasena = $row['Contrasena']) {
+                                    $_SESSION['idusuario'] = $row['IdUsuario'];
                                     $_SESSION['usuario'] = $row['Usuario'];
                                     $_SESSION['avatar'] = $row['Avatar'];
                                     $_SESSION['nombre'] = $row['Nombres'];
