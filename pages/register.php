@@ -49,7 +49,7 @@ include ('../lib/config.php');
 
                 <form action="" method="post">
                     <div class="form-group has-feedback">
-                        <input type="text" name="nombres" class="form-control" placeholder="Nombres" value="<?php echo $_POST['Nombres']; ?>" required>
+                        <input type="text" name="nombres" class="form-control" placeholder="Nombres" required>
                         <span class="glyphicon glyphicon-star form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
@@ -84,7 +84,13 @@ include ('../lib/config.php');
                         <input type="password" name="repcontrasena" class="form-control" placeholder="Repita la contraseña" required>
                         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                     </div>
+
+
+
                     <div class="row">
+
+
+                        <!--
                         <div class="col-xs-10">
                             <div class="checkbox icheck">
                                 <label>
@@ -92,11 +98,15 @@ include ('../lib/config.php');
                                 </label>
                             </div>
                         </div>
+                        -->
 
                         <div class="col-xs-12">
-                            <button type="submit" name="registrar" class="btn btn-primary btn-block btn-flat">Registrarme</button>
+                            <button type="submit" name="registrar" class="btn btn-primary btn-raised btn-block btn-flat">Registrarme</button>
                         </div>
                     </div>
+
+
+
                 </form>
 
                 <!-- <div class="social-auth-links text-center">
@@ -136,7 +146,6 @@ include ('../lib/config.php');
                         </div>
 
                         <?php
-                        echo "comprobo usuario";
                     } else {
                         if($comprobaremail >= 1) {
                             ?>
@@ -146,7 +155,6 @@ include ('../lib/config.php');
                                 El email ya está en uso por favor escoja otro o verifique si tiene una cuenta
                             </div>
                             <?php
-                            echo "comprobo email";
                         } else {
 
                             if($contrasena != $repcontrasena) {

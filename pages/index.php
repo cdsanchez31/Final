@@ -16,7 +16,7 @@ if(!isset($_SESSION['usuario']))
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>MaterialAdminLTE 2 | Dashboard</title>
+        <title>LEGISLAPP - INICIO</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.7 -->
@@ -49,21 +49,13 @@ if(!isset($_SESSION['usuario']))
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
 
-    <body class="hold-transition skin-black sidebar-mini">
+    <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
             <?php echo Headerb (); ?>
             <?php echo Side (); ?>
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
-                <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">Dashboard</li>
-                    </ol>
-                </section>
-
                 <!-- Main content -->
                 <section class="content">
                   <!-- /.row -->
@@ -77,7 +69,7 @@ if(!isset($_SESSION['usuario']))
                                 <div class="box-footer">
                                     <form action="" method="post" enctype="multipart/form-data">
                                         <div class="input-group">
-                                            <textarea name="publicacion" onkeypress="return validarn(event)" placeholder="¿Qué estás pensando?" class="form-control" cols="200" rows="3" required></textarea>
+                                            <textarea name="publicacion" onkeypress="return validarn(event)" placeholder="¿Qué estás pensando?" class="form-control" cols="200"  required></textarea>
                                             <br>
 
                                             <!-- START Input file nuevo diseño .-->
@@ -110,7 +102,6 @@ if(!isset($_SESSION['usuario']))
                                             $destino = "publicaciones/".$name;
                                             $nombre = $name;
                                             copy($rfoto, $destino);
-
 
                                             $llamar = mysqli_num_rows(mysqli_query("SELECT * FROM albumes WHERE usuario ='".$_SESSION['id']."' AND nombre = 'Publicaciones'"));
 
@@ -172,15 +163,7 @@ if(!isset($_SESSION['usuario']))
                                         <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
                                         <span class="description">Shared publicly - 7:30 PM Today</span>
                                     </div>
-                                    <!-- /.user-block -->
-                                    <div class="box-tools">
-                                        <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Mark as read">
-                                            <i class="fa fa-circle-o"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                                    </div>
-                                    <!-- /.box-tools -->
+
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">

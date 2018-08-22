@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['usuario']))
+{
+    header("Location: index.php");
+}
+include '../lib/config.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,16 +28,6 @@
         <link rel="stylesheet" href="../../dist/css/MaterialAdminLTE.min.css">
         <!-- iCheck -->
         <!-- <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css"> -->
-
-        <?php
-        session_start();
-        if(isset($_SESSION['usuario']))
-        {
-            header("Location: index.php");
-        }
-        include '../lib/config.php';
-        ?>
-
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
@@ -85,6 +83,11 @@
                                     $_SESSION['avatar'] = $row['Avatar'];
                                     $_SESSION['nombre'] = $row['Nombres'];
                                     $_SESSION['apellido'] = $row['Apellidos'];
+                                    $_SESSION['idtipousuario'] = $row['IdTipoUsuario'];
+                                    $_SESSION['tarjetapreofesional'] = $row['TarjetaProfesional'];
+                                    $_SESSION['universidadpregrado'] = $row['UniversidadPregrado'];
+                                    $_SESSION['universidadpostgrado'] = $row['UniversidadPostgrado'];
+                                    $_SESSION['experiencialaboral'] = $row['ExperienciaLaboral'];
 
                                     header('Location: index.php');
                                 }
