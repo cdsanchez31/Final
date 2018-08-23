@@ -157,6 +157,18 @@ if(!isset($_SESSION['usuario']))
                                                 <span class="description"><?php echo $fecha?></span>
 
                                             </div>
+                                            <?php
+                                                    if($results[$i]['Archivo'] != null){
+                                                        $consultafoto = IDU("select * from fotos where IdFoto = ".$results[$i]['Archivo']);
+                                                        while ($row2 = mysqli_fetch_array($consultafoto)){
+                                                            $results2 = $row2['Ruta'];
+                                                        }
+                                                        ?>
+                                                        <img class="img-responsive pad" src="../publicaciones/<?php echo $results2?>" alt="Photo" height="700" width="700">
+                                                        <?php
+                                                    }else{
+                                                    }
+                                            ?>
                                             <p>
                                                 <?php echo $contenido;?>
                                             </p>

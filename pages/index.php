@@ -110,7 +110,6 @@ if(!isset($_SESSION['usuario']))
                                             }else{
                                                 $crearalbum = IDU("INSERT INTO album (IdUsuario,Fecha,Nombre) values ('".$_SESSION['idusuario']."',now(),'Publicaciones')");
                                             }
-
                                             $idalbum = IDU("SELECT * FROM album WHERE IdUsuario ='".$_SESSION['idusuario']."' AND Nombre = 'Publicaciones'");
                                             $alb = mysqli_fetch_array($idalbum);
 
@@ -118,14 +117,13 @@ if(!isset($_SESSION['usuario']))
 
                                             $llamadoimg = IDU("SELECT IdFoto FROM fotos WHERE IdUsuario = '".$_SESSION['idusuario']."' ORDER BY IdFoto desc");
                                             $llaim = mysqli_fetch_array($llamadoimg);
+                                            $subir = IDU("INSERT INTO publicacion (Contenido,Archivo,IdUsuario,Fecha,IdReaccion,IdEspecialidad,Anuncio,IdAlbum) values ('$publicacion',".$llaim['IdFoto'].",".$_SESSION['idusuario'].",now(),1,1,'eeeee',".$alb['IdAlbum'].")");
                                         }
                                         else
                                         {
                                             $nombre = '';
+                                            $subir = IDU("INSERT INTO publicacion (Contenido,IdUsuario,Fecha,IdReaccion,IdEspecialidad,Anuncio) values ('$publicacion',".$_SESSION['idusuario'].",now(),1,1,'eeeee')");
                                         }
-
-                                        $subir = IDU("INSERT INTO publicacion (Contenido,Archivo,IdUsuario,Fecha,IdReaccion,IdEspecialidad,Anuncio,IdAlbum) values ('$publicacion',".$llaim['IdFoto'].",".$_SESSION['idusuario'].",now(),1,1,'eeeee',".$alb['IdAlbum'].")");
-
                                         if($subir) {echo '<script>window.location="index.php"</script>';}
 
                                     }
