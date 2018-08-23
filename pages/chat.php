@@ -58,15 +58,11 @@ include ('../lib/socialnetwork-lib.php');
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-red sidebar-mini">
 <div class="wrapper">
 
-
-    <?php echo Headerb (); ?>
-
-    <?php echo Side (); ?>
-
-
+    <?php echo Headerb(); ?>
+    <?php echo Side(); ?>
 
         <div class="content-wrapper">
         <!-- Content Header (Page header) -->

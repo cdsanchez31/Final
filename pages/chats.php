@@ -68,7 +68,7 @@ include ('../lib/socialnetwork-lib.php');
 
 
 </head>
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition skin-red sidebar-mini">
     <div/ class="wrapper">
 
     <?php echo Headerb (); ?>

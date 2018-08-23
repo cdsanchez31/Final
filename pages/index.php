@@ -49,7 +49,7 @@ if(!isset($_SESSION['usuario']))
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
 
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition skin-red sidebar-mini">
         <div class="wrapper">
             <?php echo Headerb (); ?>
             <?php echo Side (); ?>
@@ -84,9 +84,9 @@ if(!isset($_SESSION['usuario']))
                                     <?php
                                     if(isset($_POST['publicar']))
                                     {
-                                        $publicacion = mysqli_real_escape_string($_POST['publicacion']);
+                                        $publicacion = $_POST['publicacion'];
 
-                                        $result = mysqli_query("SHOW TABLE STATUS WHERE `Name` = 'publicaciones'");
+                                        $result = IDU("SHOW TABLE STATUS WHERE `Name` = 'publicacion'");
                                         $data = mysqli_fetch_assoc($result);
                                         $next_increment = $data['Auto_increment'];
 
@@ -99,33 +99,32 @@ if(!isset($_SESSION['usuario']))
 
                                         if(is_uploaded_file($rfoto))
                                         {
-                                            $destino = "publicaciones/".$name;
+                                            $destino = "../publicaciones/".$name;
                                             $nombre = $name;
                                             copy($rfoto, $destino);
 
-                                            $llamar = mysqli_num_rows(mysqli_query("SELECT * FROM albumes WHERE usuario ='".$_SESSION['id']."' AND nombre = 'Publicaciones'"));
+                                            $llamar = Consultar("SELECT * FROM album WHERE IdUsuario = '".$_SESSION['idusuario']."' AND Nombre = 'Publicaciones'");
 
-                                            if($llamar >= 1) {} else {
+                                            if($llamar >= 1) {
 
-                                                $crearalbum = mysqli_query("INSERT INTO albumes (usuario,fecha,nombre) values ('".$_SESSION['id']."',now(),'Publicaciones')");
-
+                                            }else{
+                                                $crearalbum = IDU("INSERT INTO album (IdUsuario,Fecha,Nombre) values ('".$_SESSION['idusuario']."',now(),'Publicaciones')");
                                             }
 
-                                            $idalbum = mysqli_query("SELECT * FROM albumes WHERE usuario ='".$_SESSION['id']."' AND nombre = 'Publicaciones'");
+                                            $idalbum = IDU("SELECT * FROM album WHERE IdUsuario ='".$_SESSION['idusuario']."' AND Nombre = 'Publicaciones'");
                                             $alb = mysqli_fetch_array($idalbum);
 
-                                            $subirimg = mysqli_query("INSERT INTO fotos (usuario,fecha,ruta,album,publicacion) values ('".$_SESSION['id']."',now(),'$nombre','".$alb['id_alb']."','$next_increment')");
+                                            $subirimg = IDU("INSERT INTO fotos (IdUsuario,Fecha,Ruta,IdAlbum,IdPublicacion) values (".$_SESSION['idusuario'].",now(),'$nombre','".$alb['IdAlbum']."','$next_increment')");
 
-                                            $llamadoimg = mysqli_query("SELECT id_fot FROM fotos WHERE usuario = '".$_SESSION['id']."' ORDER BY id_fot desc");
+                                            $llamadoimg = IDU("SELECT IdFoto FROM fotos WHERE IdUsuario = '".$_SESSION['idusuario']."' ORDER BY IdFoto desc");
                                             $llaim = mysqli_fetch_array($llamadoimg);
-
                                         }
                                         else
                                         {
                                             $nombre = '';
                                         }
 
-                                        $subir = mysqli_query("INSERT INTO publicaciones (usuario,fecha,contenido,imagen,album,comentarios) values ('".$_SESSION['id']."',now(),'$publicacion','".$llaim['id_fot']."','".$alb['id_alb']."','1')");
+                                        $subir = IDU("INSERT INTO publicacion (Contenido,Archivo,IdUsuario,Fecha,IdReaccion,IdEspecialidad,Anuncio,IdAlbum) values ('$publicacion',".$llaim['IdFoto'].",".$_SESSION['idusuario'].",now(),1,1,'eeeee',".$alb['IdAlbum'].")");
 
                                         if($subir) {echo '<script>window.location="index.php"</script>';}
 
@@ -169,7 +168,7 @@ if(!isset($_SESSION['usuario']))
                                 <div class="box-body">
                                     <img class="img-responsive pad" src="" alt="Photo">
 
-                                    <p>I took this photo this morning. What do you guys think?</p>
+                                    <p> <?php echo $result?> <br> <?php echo $llamar?> <br> <?php echo $idalbum?> </p>
                                     <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
                                     <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
                                     <span class="pull-right text-muted">127 likes - 3 comments</span>
