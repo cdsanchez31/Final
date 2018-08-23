@@ -57,7 +57,7 @@ include ('../lib/config.php');
                         <span class="glyphicon glyphicon-star form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="number" name="documento" class="form-control" placeholder="Documento" value="<?php echo $_POST['Documento']; ?>" required>
+                        <input type="text" name="documento" class="form-control" placeholder="Documento" value="<?php echo $_POST['Documento']; ?>" required>
                         <span class="glyphicon glyphicon-star form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">

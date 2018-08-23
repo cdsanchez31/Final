@@ -7,7 +7,7 @@ function Headerb (){
 
     <!-- Logo -->
     <a href="../pages/index.php" class="logo">
-        <!-- logo for regular state and mobile devices -->
+        <span class="logo-mini">LG<b>A</b></span>
         <span class="logo-lg">LEGISL<b>APP</b></span>
     </a>
 
@@ -82,8 +82,10 @@ function Headerb (){
             <div class="pull-left info">
                 <a href="profile.php"><span class="hidden-xs"><?php echo ucwords($_SESSION['usuario']); ?></span></a>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <br><br>
+                <p><?php echo $_SESSION['nombre'] ?>  <?php echo $_SESSION['apellido']?></p>
             </div>
-            <p><?php echo $_SESSION['nombre'] ?>  <?php echo $_SESSION['apellido']?></p>
+
         </div>
 
         <ul class="sidebar-menu" data-widget="tree">
