@@ -168,7 +168,7 @@ if(!isset($_SESSION['usuario']))
                                 <div class="box-body">
                                     <img class="img-responsive pad" src="" alt="Photo">
 
-                                    <p> <?php echo $result?> <br> <?php echo $llamar?> <br> <?php echo $idalbum?> </p>
+                                    <p> TODO BIEN, TU PUEDES PENDEJOOOOOO</p>
                                     <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
                                     <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
                                     <span class="pull-right text-muted">127 likes - 3 comments</span>
